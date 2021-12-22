@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj": {}
+    "d:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj": {
+    "d:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj",
+        "projectUniqueName": "d:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj",
+        "projectPath": "d:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj",
         "packagesPath": "C:\\Users\\nirba\\.nuget\\packages\\",
-        "outputPath": "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\obj\\",
+        "outputPath": "d:\\Hackeru\\Angular_Project\\Dating_App\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,7 +25,6 @@
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +43,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
