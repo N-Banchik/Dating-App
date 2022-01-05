@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rTKeW8Uy+ld35STMTldCB+xKU030S8ZwIfRaRiocNHgzsufFGVPOdy5uc25h7cXpIBVZUjipNyLBFidbcK4y6g==",
+  "dgSpecHash": "gvoOvRnnVJ2P9kqjIvLBbxTxQgwKlZGbkyiuPQtRiSnjBcEKySrGIJVZHOv5Wt7Nt2oXG2a7YX0df3lA95VTwQ==",
   "success": true,
   "projectFilePath": "D:\\Hackeru\\Angular_Project\\Dating_App\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nirba\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.13\\microsoft.aspnetcore.authentication.jwtbearer.5.0.13.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.13\\microsoft.data.sqlite.core.5.0.13.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
@@ -26,6 +27,11 @@
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.15.0\\microsoft.identitymodel.jsonwebtokens.6.15.0.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.identitymodel.logging\\6.15.0\\microsoft.identitymodel.logging.6.15.0.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.0\\microsoft.identitymodel.tokens.6.15.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
@@ -38,7 +44,9 @@
     "C:\\Users\\nirba\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\nirba\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
-    "C:\\Users\\nirba\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\nirba\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.0\\system.identitymodel.tokens.jwt.6.15.0.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\nirba\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
