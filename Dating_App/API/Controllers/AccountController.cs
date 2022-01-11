@@ -58,10 +58,10 @@ namespace API.Controllers
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
-            var comutedhash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(loginDto.Password));
-            for (int i = 0; i < comutedhash.Length; i++)
+            var computedhash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(loginDto.Password));
+            for (int i = 0; i < computedhash.Length; i++)
             {
-                if (comutedhash[i] != user.PasswordHash[i])
+                if (computedhash[i] != user.PasswordHash[i])
                 {
                     return Unauthorized("invalid password");
                 }

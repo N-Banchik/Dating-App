@@ -18,14 +18,16 @@ namespace API.Extensions
     {
          public static IServiceCollection AddIdeIdentityService(this IServiceCollection services, IConfiguration _config)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options=>{
-                options.TokenValidationParameters = new TokenValidationParameters{
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"])),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
+             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options => {
+                options.TokenValidationParameters = new TokenValidationParameters {
+                  ValidateIssuerSigningKey = true,
+                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"])),
+                  ValidateIssuer = false,
+                  ValidateAudience = false  
                 };
             });
+
             return services;
         }
     }

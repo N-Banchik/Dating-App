@@ -24,7 +24,6 @@ namespace API.Controllers
         [Authorize]
         public async Task<ActionResult<IEnumerable<AppUser>>> Getusers()
         {
-
             var users = await _context.Users.ToListAsync();
             return users;
         }
