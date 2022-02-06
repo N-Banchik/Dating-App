@@ -66,6 +66,7 @@ namespace API.Controllers
                     return Unauthorized("invalid password");
                 }
             }
+            
             return new UserDto{
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)

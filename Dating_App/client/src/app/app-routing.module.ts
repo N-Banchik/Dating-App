@@ -6,57 +6,37 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { AuthGuard } from './guards/AuthGuard';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
-import { MemberDetailsComponent } from './members/member-details/member-details.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  {
+    path: '',// localhost:4200/
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
   {
     path: '',
-    canActivate: [AuthGuard],
+    canActivate:[AuthGuard],
     runGuardsAndResolvers: 'always',
     children: [
       {
         path: 'members',
-        loadChildren: () =>
-          import('./modules/members/members.module').then(
-            (m) => m.MembersModule
-          ),
+        loadChildren: () => import('./modules/members.module').then(m => m.MembersModule)
       },
-
-      {
-        path: 'lists',
-        component: ListsComponent,
-      },
-      {
-        path: 'messages',
-        component: MessagesComponent,
-      },
-    ],
+      {path: 'lists',component: ListsComponent},
+      {path: 'messages',component: MessagesComponent},
+    ]
   },
   {
-    path: 'members',
-    loadChildren: () =>
-      import('./modules/members/members.module').then((m) => m.MembersModule),
+    path: 'errors', component: TestErrorsComponent
   },
-  {
-    path: 'errors',
-    component: TestErrorsComponent,
-  },
-  {
-    path: 'not-found',
-    component: NotFoundComponent,
-  },
-  {
-    path: 'server-error',
-    component: ServerErrorComponent,
-  },
+  { path:'not-found', component:NotFoundComponent},
+  { path:'server-error', component:ServerErrorComponent},
   {
     path: '**',
     pathMatch: 'full',
-    component: HomeComponent,
-  },
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({
