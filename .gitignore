@@ -110,5 +110,5 @@ StudentAssets
 .vs**
 
 
-API/appsettings.json
-API/appsettings.Development.json
+appsettings.json
+appsettings.Development.json
