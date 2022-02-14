@@ -4,39 +4,49 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { AuthGuard } from './guards/AuthGuard';
+import { PreventUnsavedChangesGuard } from './guards/prevent-unsaved-changes.guard';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
 import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
   {
-    path: '',// localhost:4200/
+    path: '', // localhost:4200/
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '',
-    canActivate:[AuthGuard],
+    canActivate: [AuthGuard],
     runGuardsAndResolvers: 'always',
     children: [
       {
         path: 'members',
-        loadChildren: () => import('./modules/members.module').then(m => m.MembersModule)
+
+        loadChildren: () =>
+          import('./modules/members.module').then((m) => m.MembersModule),
       },
-      {path: 'lists',component: ListsComponent},
-      {path: 'messages',component: MessagesComponent},
-    ]
+      {
+        path: 'member/edit',
+        component: MemberEditComponent,
+        canDeactivate: [PreventUnsavedChangesGuard],
+      },
+      { path: 'lists', component: ListsComponent },
+      { path: 'messages', component: MessagesComponent },
+    ],
   },
   {
-    path: 'errors', component: TestErrorsComponent
+    path: 'errors',
+    component: TestErrorsComponent,
   },
-  { path:'not-found', component:NotFoundComponent},
-  { path:'server-error', component:ServerErrorComponent},
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
   {
     path: '**',
     pathMatch: 'full',
-    component: NotFoundComponent
-  }
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({

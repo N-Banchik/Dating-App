@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using API.interfaces;
 using API.DTOs;
 using AutoMapper;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
@@ -26,6 +27,23 @@ namespace API.Controllers
             this.mapper = mapper;
         }
 
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
+        {
+            string username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = await userRepository.GetUserByUsernameAsync(username);
+            mapper.Map(memberUpdateDto, user);
+            userRepository.update(user);
+            if (await userRepository.SaveAllAsync())
+            {
+                return NoContent();
+            }
+            return BadRequest("Could not update user");
+            
+        
+        }
+        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> Getusers()
         {
@@ -37,8 +55,10 @@ namespace API.Controllers
         public async Task<ActionResult<MemberDto>> Getuser(string username)
         {
             MemberDto user = await userRepository.GetMemberAsync(username);
-            return user;
+            return Ok(user);
         }
+
+        
 
 
     }
