@@ -18,13 +18,13 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationsServices(this IServiceCollection services, IConfiguration _config)
         {
             services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPhotoService, PhotoService>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-
-            
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection"))
             );
+            services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
 
             return services;
         }
