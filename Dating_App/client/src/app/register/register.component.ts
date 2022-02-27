@@ -2,6 +2,7 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
+  FormBuilder,
   FormControl,
   FormGroup,
   ValidationErrors,
@@ -20,28 +21,36 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   @Output() cancelRegister = new EventEmitter<boolean>();
   registerForm: FormGroup;
+  maxDate: Date = new Date();
 
   constructor(
     private accountService: AccountService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
 
   initializeForm() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', [
+    this.registerForm = this.fb.group({
+      gender: ['male'],
+      username: ['', Validators.required],
+      knownAs:['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: ['', [
         Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(8),
-      ]),
-      confirmPassword: new FormControl('', [
+        Validators.maxLength(8)
+      ]],
+      confirmPassword: ['', [
         Validators.required,
-        this.matchValues('password'),
-      ]),
+        this.matchValues('password')
+      ]]
     });
 
     this.registerForm.get('password')?.valueChanges.subscribe(() => {

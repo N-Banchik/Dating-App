@@ -20,6 +20,8 @@ import { SharedModule } from './modules/shared.module';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditComponent } from './member-edit/Photo-Edit/photo-edit/photo-edit.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
+import { DateInputComponent } from './forms/date-input/date-input.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { PhotoEditComponent } from './member-edit/Photo-Edit/photo-edit/photo-ed
     ServerErrorComponent,
     MemberEditComponent,
     PhotoEditComponent,
+    TextInputComponent,
+    DateInputComponent,
   ],
   imports: [
     BrowserModule,
