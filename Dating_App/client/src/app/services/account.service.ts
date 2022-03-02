@@ -9,10 +9,11 @@ import { User } from '../models/user';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) {}
-
   private currentUserSource$ = new ReplaySubject<User | null>(1);
   currentUser$ = this.currentUserSource$.asObservable();
+  
+  constructor(private http: HttpClient) {}
+
 
   login(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
@@ -26,7 +27,6 @@ export class AccountService {
   }
 
   setCurrentUser(user: User) {
-    this.currentUserSource$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource$.next(user);
   }

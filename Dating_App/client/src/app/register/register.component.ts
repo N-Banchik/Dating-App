@@ -9,7 +9,9 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -22,12 +24,14 @@ export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter<boolean>();
   registerForm: FormGroup;
   maxDate: Date = new Date();
+  validationErrors:Observable<any>;
 
   constructor(
     private accountService: AccountService,
     private toaster: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,private router: Router
   ) {}
+ 
 
   ngOnInit(): void {
     this.initializeForm();
@@ -38,7 +42,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       gender: ['male'],
       username: ['', Validators.required],
-      knownAs:['', Validators.required],
+      knownAs:['',Validators.required],
       dateOfBirth: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
@@ -58,16 +62,16 @@ export class RegisterComponent implements OnInit {
     });
   }
   register() {
-    // this.accountService.register(this.model).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     this.cancel();
-    //   },
-    //   (error) => {
-    //     this.toaster.error(error.error);
-    //     console.log(error);
-    //   }
-    // );
+    this.accountService.register(this.registerForm.value).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigateByUrl('/members');
+        this.cancel();
+      },
+      (error) => {
+       this.validationErrors= error;
+      }
+    );
     console.log(this.registerForm.value);
   }
   cancel() {

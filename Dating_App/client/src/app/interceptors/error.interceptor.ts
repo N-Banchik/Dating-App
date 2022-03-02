@@ -31,14 +31,14 @@ export class ErrorInterceptor implements HttpInterceptor {
               throw modelStateErrors.flat();
             } else {
               this.toastr.error(
-                err.statusText === 'OK' ? 'Bad Request' : err.statusText,
+                (err.statusText === 'OK' ? 'Bad Request' : err.statusText)+`: ${err.error}`,
                 err.status
               );
             }
             break;
           case 401:
             this.toastr.error(
-              err.statusText === 'OK' ? 'Unauthorize' : err.statusText,
+              (err.statusText === 'OK' ? 'Unauthorized' : err.statusText)+`: ${err.error}`,
               err.status
             );
             break;

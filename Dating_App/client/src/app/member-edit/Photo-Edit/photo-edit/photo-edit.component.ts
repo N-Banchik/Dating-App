@@ -54,6 +54,12 @@ export class PhotoEditComponent implements OnInit {
       if (response) {
         const photo = JSON.parse(response);
         this.member.photos.push(photo);
+
+        if (photo.isMain) {
+          this.user.photoUrl = photo.url;
+          this.member.photoUrl = photo.url;
+          this.accountservice.setCurrentUser(this.user);
+        }
       }
     };
   }
@@ -70,7 +76,7 @@ export class PhotoEditComponent implements OnInit {
 
   deletePhoto(photo: any) {
     this.memberService.deletePhoto(photo).subscribe(() => {
-      this.member.photos=this.member.photos.filter((p) => p.id !== photo);
+      this.member.photos = this.member.photos.filter((p) => p.id !== photo);
     });
   }
   fileOverBase(e: any) {

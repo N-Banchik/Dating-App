@@ -14,6 +14,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using API.Extensions;
 using CloudinaryDotNet.Actions;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -49,9 +50,11 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> Getusers()
+        public async Task<ActionResult<PagedList<MemberDto>>> Getusers([FromQuery] UserParams userParams)
+        
         {
-            IEnumerable<MemberDto> users = await userRepository.GetMembersAsync();
+            var users = await userRepository.GetMembersAsync(userParams);
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
             return Ok(users);
         }
 
