@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MemberDetailsComponent } from '../members/member-details/member-details.component';
 import { MemberListComponent } from '../members/member-list/member-list.component';
 import { Routes, RouterModule } from '@angular/router';
-import { MemberCardComponent } from '../members/member-card/member-card.component';
+
 import { SharedModule } from './shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -16,15 +17,15 @@ const routes: Routes = [
   declarations: [
     MemberListComponent,
     MemberDetailsComponent,
-    MemberCardComponent,
+    
   ],
-  imports: [CommonModule, RouterModule.forChild(routes) ,SharedModule],
+  imports: [CommonModule, RouterModule.forChild(routes) ,SharedModule,FormsModule,ReactiveFormsModule,],
   exports: [
     RouterModule,
     
     MemberListComponent,
     MemberDetailsComponent,
-    MemberCardComponent,
+   
   ],
 })
 export class MembersModule {}

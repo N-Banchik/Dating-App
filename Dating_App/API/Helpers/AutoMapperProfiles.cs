@@ -19,11 +19,18 @@ namespace API.Helpers
              .ForMember(destination => destination.Age,
              opt => { opt.MapFrom(calc => calc.DateOfBirth.CalculateAge()); });
 
+             CreateMap<AppUser, LikeDto>()
+            .ForMember(destination => destination.PhotoUrl,
+             opt => { opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url); })
+             .ForMember(destination => destination.Age,
+             opt => { opt.MapFrom(calc => calc.DateOfBirth.CalculateAge()); });
+
             CreateMap<RegisterDto, AppUser>();
             
             CreateMap<Photo, PhotoDto>();
 
             CreateMap<MemberUpdateDto, AppUser>();
+            
         }
     }
 }

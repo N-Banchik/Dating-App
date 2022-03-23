@@ -2,11 +2,11 @@
   <div class="col-4">
       <div class="card">
           <img class="card-img-top img-thumbnail" src="{{member.photoUrl || './assets/user.png'}}"
-              alt="{{member.knownAs}}">
+              alt="{{member.knownAs| titlecase}}">
           <div class="card-body">
               <div>
                   <strong>Location:</strong>
-                  <p>{{member.city}}, {{member.country}}</p>
+                  <p>{{member.city| titlecase}}, {{member.country| titlecase}}</p>
               </div>
               <div>
                   <strong>Age:</strong>
@@ -14,11 +14,11 @@
               </div>
               <div>
                   <strong>Member Since:</strong>
-                  <p>{{member.created}}</p>
+                  <p>{{member.created|date :'longDate'}}</p>
               </div>
               <div>
                   <strong>Last Active:</strong>
-                  <p>{{member.lastActive}}</p>
+                  <p>{{member.lastActive|date}}</p>
               </div>
           </div>
           <div class="card-footer">
@@ -31,7 +31,7 @@
   </div>
   <div class="col-8">
     <tabset class="member-tabset">
-      <tab heading="About {{member.knownAs}}">
+      <tab heading="About {{member.knownAs| titlecase}}">
           <h4>Description:</h4>
           <p>{{member.introduction}}</p>
           <h4>Looking for</h4>

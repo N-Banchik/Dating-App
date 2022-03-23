@@ -66,6 +66,7 @@ export class TestErrorsComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        this.validationError = error;
       }
     );
   }
